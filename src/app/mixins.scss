@@ -1,0 +1,42 @@
+// Mimic the breakpoints from Tailwind CSS.
+$breakpoint-sm: 640px; // Small Tablet
+$breakpoint-md: 768px; // Tablet
+$breakpoint-lg: 1024px; // Laptop
+$breakpoint-xl: 1280px; // Large Desktop
+$breakpoint-2xl: 1536px; // Extra Large Desktop
+
+@mixin sm {
+  @media (min-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: $breakpoint-xl) {
+    @content;
+  }
+}
+
+@mixin xl2 {
+  @media (min-width: $breakpoint-2xl) {
+    @content;
+  }
+}
+
+@mixin breakpoint($size) {
+  @media (min-width: $size) {
+    @content;
+  }
+}

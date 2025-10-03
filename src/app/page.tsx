@@ -1,103 +1,149 @@
+"use client";
+
 import Image from "next/image";
+import VCard from "vcard-creator";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import {
+  faGithubSquare,
+  faLinkedin,
+  faTwitterSquare,
+} from "@fortawesome/free-brands-svg-icons";
+
+import {
+  faContactCard,
+  faEnvelope,
+  faFileLines,
+  faPhone,
+} from "@fortawesome/free-solid-svg-icons";
+
+import Button from "./components/Button";
+import QRCode from "./components/QRCode";
+import SocialButton from "./components/SocialNetwork";
+import Tile from "./components/Tile";
+import classes from "./page.module.scss";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const downloadVCard = () => {
+    // Create a new vCard.
+    const myVCard = new VCard();
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    // Add contact information.
+    myVCard
+      .addName("Klatt", "James")
+      .addCompany("Full-Stack Web Developer")
+      .addJobtitle("Full-Stack Web Developer")
+      .addEmail("jamesklatt@mail.com")
+      .addPhoneNumber("(727) 389-1281")
+      .addAddress("", "", "", "Tampa", "", "", "FL")
+      .addURL("https://www.linkedin.com/in/jamesklatt/")
+      .addURL("https://github.com/ghazlawl")
+      .addURL("https://twitter.com/ghazlawl")
+      .addNote(
+        "Passionate full-stack developer seeking new opportunities to create impactful web applications."
+      );
+
+    // Generate vCard string.
+    const vCardString = myVCard.toString();
+
+    // Create the download link and trigger the download.
+    const blob = new Blob([vCardString], { type: "text/vcard" });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "James_Klatt_Contact.vcf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(url);
+  };
+
+  return (
+    <div className={`${classes.container} min-h-lvh px-5 py-10`}>
+      <div className="w-9/10 max-w-[350px] m-auto">
+        <div className="flex justify-center mb-8">
+          <div
+            className={`${classes.image} shadow-lg overflow-hidden rounded-full`}
           >
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/images/IMG_2810.jpg"
+              alt="James Klatt"
+              width={200}
+              height={200}
+              className="rounded-full"
+              priority
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+        <div className="mb-8 text-center">
+          <h1 className="font-bold mb-1 text-4xl">James Klatt</h1>
+          <p className="mb-1 opacity-75 text-2xl">Full-Stack Web Developer</p>
+          <p className="mb-4 text-xs">Tampa, FL</p>
+          <p className="text-md">
+            Passionate full-stack developer seeking new opportunities to create
+            impactful web applications.
+          </p>
+        </div>
+        <Button onClick={downloadVCard}>
+          <FontAwesomeIcon
+            icon={faContactCard}
+            className="mr-2"
+            style={{ width: "16px", height: "16px" }}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          Save Contact
+        </Button>
+        <hr className="my-8 opacity-25" />
+        <Tile href="tel:7273891281" icon={faPhone} label="Phone">
+          (727) 389-1281
+        </Tile>
+        <Tile href="mailto:jamesklatt@mail.com" icon={faEnvelope} label="Email">
+          jamesklatt@mail.com
+        </Tile>
+        <Tile href="#" icon={faFileLines} label="Download">
+          Resumé
+        </Tile>
+        <hr className="my-8 opacity-25" />
+        <div className="text-center">
+          <h3 className="font-bold mb-4 text-blue-100 text-sm">Connect</h3>
+          <div className="flex flex-row justify-center">
+            <SocialButton
+              href="https://www.linkedin.com/in/jamesklatt/"
+              icon={faLinkedin}
+            />
+            <SocialButton
+              href="https://github.com/ghazlawl"
+              icon={faGithubSquare}
+            />
+            <SocialButton
+              href="https://twitter.com/ghazlawl"
+              icon={faTwitterSquare}
+            />
+          </div>
+        </div>
+        <hr className="my-8 opacity-25" />
+        <div className="mb-12 text-center">
+          <h3 className="font-bold mb-2 text-blue-100 text-sm">Share</h3>
+          <p className="mb-4 text-blue-200/75 text-xs opacity-70">
+            Scan this QR code to share this page.
+          </p>
+          <div className="text-center">
+            <QRCode
+              value={
+                typeof window !== "undefined"
+                  ? window.location.href
+                  : "https://ghazlawl.dev"
+              }
+            />
+          </div>
+        </div>
+        <div className="bg-blue-100/5 p-3 px-5 text-center rounded-lg">
+          <p className="text-blue-100/50 text-xs">
+            Made with 🤍 using Next.js, React, TypeScript, and Tailwind CSS.
+            Hosted on Vercel.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

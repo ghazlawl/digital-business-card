@@ -1,0 +1,35 @@
+@import "~/app/mixins.scss";
+
+.container {
+  background-image: url("/images/bg.png");
+  background-position: 100% top;
+  background-repeat: no-repeat;
+
+  @include lg {
+    background-position: 50% 50%;
+    background-size: cover;
+  }
+}
+
+.image {
+  position: relative;
+
+  &::after {
+    background: linear-gradient(
+      180deg,
+      rgba(2, 40, 80, 0.2),
+      rgba(6, 90, 160, 0.4)
+    );
+    content: "";
+    cursor: not-allowed;
+    inset: 0;
+    position: absolute;
+    backdrop-filter: blur(0.5px) saturate(1.2) contrast(1.1) brightness(0.9);
+    mix-blend-mode: overlay;
+    transition: backdrop-filter 0.5s ease;
+  }
+
+  &:hover::after {
+    backdrop-filter: blur(1.6px) saturate(0.8) contrast(1.02) brightness(1.02);
+  }
+}
