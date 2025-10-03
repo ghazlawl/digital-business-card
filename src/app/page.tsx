@@ -15,6 +15,7 @@ import {
   faContactCard,
   faEnvelope,
   faFileLines,
+  faMapMarkerAlt,
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -23,6 +24,7 @@ import QRCode from "./components/QRCode";
 import SocialButton from "./components/SocialNetwork";
 import Tile from "./components/Tile";
 import classes from "./page.module.scss";
+import Link from "./components/Link";
 
 export default function Home() {
   const downloadVCard = () => {
@@ -79,7 +81,13 @@ export default function Home() {
         <div className="mb-8 text-center">
           <h1 className="font-bold mb-1 text-4xl">James Klatt</h1>
           <p className="mb-1 opacity-75 text-2xl">Full-Stack Web Developer</p>
-          <p className="mb-4 text-xs">Tampa, FL</p>
+          <p className="mb-4 text-xs">
+            <FontAwesomeIcon
+              icon={faMapMarkerAlt}
+              className="me-0.5 text-blue-100/50"
+            />
+            Tampa, FL
+          </p>
           <p className="text-md">
             Passionate full-stack developer seeking new opportunities to create
             impactful web applications.
@@ -139,8 +147,27 @@ export default function Home() {
         </div>
         <div className="bg-blue-100/5 p-3 px-5 text-center rounded-lg">
           <p className="text-blue-100/50 text-xs">
-            Made with 🤍 using Next.js, React, TypeScript, and Tailwind CSS.
-            Hosted on Vercel.
+            Made with 🤍 using{" "}
+            <Link href="https://nextjs.org/" target="_blank">
+              Next.js
+            </Link>
+            ,{" "}
+            <Link href="https://react.dev/" target="_blank">
+              React
+            </Link>
+            ,{" "}
+            <Link href="https://www.typescriptlang.org/" target="_blank">
+              TypeScript
+            </Link>
+            , and{" "}
+            <Link href="https://tailwindcss.com/" target="_blank">
+              Tailwind CSS
+            </Link>
+            . Hosted on{" "}
+            <Link href="https://vercel.com/" target="_blank">
+              Vercel
+            </Link>
+            .
           </p>
         </div>
       </div>
