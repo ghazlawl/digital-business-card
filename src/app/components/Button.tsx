@@ -2,8 +2,8 @@ import React from "react";
 
 type BlueButtonProps = {
   children: React.ReactNode;
-  onClick?: () => void;
   href?: string;
+  onClick?: () => void;
 } & (
   | React.AnchorHTMLAttributes<HTMLAnchorElement>
   | React.ButtonHTMLAttributes<HTMLButtonElement>
@@ -11,8 +11,8 @@ type BlueButtonProps = {
 
 const BlueButton: React.FC<BlueButtonProps> = ({
   children,
-  onClick,
   href,
+  onClick,
   ...props
 }) => {
   const classNames = [

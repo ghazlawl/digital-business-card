@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import QRCode from "qrcode";
+import { useEffect, useRef } from "react";
 
 interface QRCodeProps {
   value: string;

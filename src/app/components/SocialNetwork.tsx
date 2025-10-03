@@ -1,8 +1,10 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 type SocialButtonProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
-  icon: any;
+  icon: IconDefinition;
 };
 
 const SocialButton: React.FC<SocialButtonProps> = ({ icon, ...props }) => {

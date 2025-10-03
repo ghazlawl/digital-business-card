@@ -1,9 +1,11 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 type TileProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   children: React.ReactNode;
-  icon: any;
+  icon: IconDefinition;
   label: string;
   href?: string;
 };
