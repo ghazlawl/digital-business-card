@@ -19,8 +19,7 @@ export const metadata: Metadata = {
   robots: "noindex,nofollow",
   icons: {
     icon: [
-      { url: "/favicons/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicons/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicons/favicon-96x96.png", sizes: "96x96", type: "image/png" },
     ],
     apple: { url: "/favicons/apple-touch-icon.png", sizes: "180x180" },
   },
@@ -39,6 +38,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/favicons/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicons/favicon-96x96.png"
+        />
+        <link rel="manifest" href="/favicons/site.webmanifest" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
