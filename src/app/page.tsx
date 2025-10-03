@@ -34,7 +34,7 @@ export default function Home() {
     // Add contact information.
     myVCard
       .addName("Klatt", "James")
-      .addCompany("Full-Stack Web Developer")
+      .addCompany("")
       .addJobtitle("Full-Stack Web Developer")
       .addEmail("jamesklatt@mail.com")
       .addPhoneNumber("(727) 389-1281")
