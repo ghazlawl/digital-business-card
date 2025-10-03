@@ -68,6 +68,7 @@ src/
 ├── app/
 │   ├── components/
 │   │   ├── Button.tsx
+│   │   ├── Link.tsx
 │   │   ├── QRCode.tsx
 │   │   ├── SocialNetwork.tsx
 │   │   └── Tile.tsx
@@ -128,15 +129,15 @@ const downloadVCard = () => {
 
 ### Social Links
 
-Update social media links in the SocialButton components:
+Update social media links in the SocialNetwork components:
 
 ```tsx
-<SocialButton href="https://linkedin.com/in/yourprofile" icon={faLinkedin} />
+<SocialNetwork href="https://linkedin.com/in/yourprofile" icon={faLinkedin} />
 ```
 
 ## 📱 Components
 
-### BlueButton
+### Button
 
 Primary action button that supports both onClick handlers and href links.
 
@@ -166,7 +167,7 @@ Contact information display with icons and click actions.
 </Tile>
 ```
 
-### SocialButton
+### SocialNetwork
 
 Social media link buttons with FontAwesome icons.
 
