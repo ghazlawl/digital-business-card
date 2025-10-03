@@ -1,8 +1,9 @@
 @import "~/app/mixins.scss";
 
 .container {
-  background-image: url("/images/bg.png");
-  background-position: 100% top;
+  background-image: url("/images/bg-2x.png");
+  background-position: 90% calc(100% - 160px);
+  background-size: 200vw 100%;
   background-repeat: no-repeat;
 
   @include lg {
