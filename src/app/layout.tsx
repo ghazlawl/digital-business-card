@@ -15,6 +15,30 @@ export const metadata: Metadata = {
   description:
     "Passionate full-stack developer seeking new opportunities to create impactful web applications.",
   robots: "noindex,nofollow",
+  openGraph: {
+    title: "James Klatt - Full-Stack Developer",
+    description:
+      "Passionate full-stack developer seeking new opportunities to create impactful web applications.",
+    url: "https://ghazlawl.dev",
+    siteName: "James Klatt - Digital Business Card",
+    images: [
+      {
+        url: "/images/me.webp",
+        width: 1200,
+        height: 630,
+        alt: "James Klatt - Full-Stack Developer",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "James Klatt - Full-Stack Developer",
+    description:
+      "Passionate full-stack developer seeking new opportunities to create impactful web applications.",
+    images: ["/images/me.webp"],
+  },
   icons: {
     icon: [
       { url: "/favicons/favicon-96x96.png", sizes: "96x96", type: "image/png" },
