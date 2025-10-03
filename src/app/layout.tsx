@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     siteName: "James Klatt - Digital Business Card",
     images: [
       {
-        url: "/images/opengraph.webp",
+        url: "/images/me-opengraph.webp",
         width: 1200,
         height: 630,
         alt: "James Klatt - Full-Stack Developer",
