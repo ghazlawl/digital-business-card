@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Digital Business Card",
+  title: "James Klatt - Full-Stack Developer",
   description: "Please hire me.",
   robots: "noindex,nofollow",
   icons: {
@@ -46,7 +46,7 @@ export default function RootLayout({
         <link
           rel="icon"
           type="image/png"
-          sizes="32x32"
+          sizes="96x96"
           href="/favicons/favicon-96x96.png"
         />
         <link rel="manifest" href="/favicons/site.webmanifest" />

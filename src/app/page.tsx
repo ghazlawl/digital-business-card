@@ -67,7 +67,7 @@ export default function Home() {
             className={`${classes.image} shadow-lg overflow-hidden rounded-full`}
           >
             <Image
-              src="/images/IMG_2810.jpg"
+              src="/images/me.webp"
               alt="James Klatt"
               width={200}
               height={200}
