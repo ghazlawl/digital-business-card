@@ -20,6 +20,7 @@
       rgba(2, 40, 80, 0.2),
       rgba(6, 90, 160, 0.4)
     );
+    border-radius: calc(infinity * 1px);
     content: "";
     cursor: not-allowed;
     inset: 0;

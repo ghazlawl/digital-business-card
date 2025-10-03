@@ -12,7 +12,8 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   title: "James Klatt - Full-Stack Developer",
-  description: "Please hire me.",
+  description:
+    "Passionate full-stack developer seeking new opportunities to create impactful web applications.",
   robots: "noindex,nofollow",
   icons: {
     icon: [
