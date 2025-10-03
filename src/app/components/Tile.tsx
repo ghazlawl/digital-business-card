@@ -10,7 +10,13 @@ type TileProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   href?: string;
 };
 
-const Tile: React.FC<TileProps> = ({ children, icon, label, href }) => {
+const Tile: React.FC<TileProps> = ({
+  children,
+  icon,
+  label,
+  href,
+  ...props
+}) => {
   const classNames = [
     "align-items-center",
     "bg-blue-200/[0.1]",
@@ -28,7 +34,7 @@ const Tile: React.FC<TileProps> = ({ children, icon, label, href }) => {
   ];
 
   return (
-    <a href={href} className={classNames.join(" ")}>
+    <a href={href} className={classNames.join(" ")} {...props}>
       <span className="w-6 flex-none mr-4 pt-[0.4rem]">
         <FontAwesomeIcon
           icon={icon}

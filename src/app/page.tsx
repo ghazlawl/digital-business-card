@@ -84,7 +84,8 @@ export default function Home() {
           <p className="mb-4 text-xs">
             <FontAwesomeIcon
               icon={faMapMarkerAlt}
-              className="me-0.5 text-blue-100/50"
+              className="inline-block me-0.5 text-blue-100/50"
+              style={{ width: "12px", height: "12px" }}
             />
             Tampa, FL
           </p>
@@ -96,7 +97,7 @@ export default function Home() {
         <Button onClick={downloadVCard}>
           <FontAwesomeIcon
             icon={faContactCard}
-            className="mr-2"
+            className="inline-block mr-2"
             style={{ width: "16px", height: "16px" }}
           />
           Save Contact
@@ -105,10 +106,20 @@ export default function Home() {
         <Tile href="tel:7273891281" icon={faPhone} label="Phone">
           (727) 389-1281
         </Tile>
-        <Tile href="mailto:jamesklatt@mail.com" icon={faEnvelope} label="Email">
+        <Tile
+          href="mailto:jamesklatt@mail.com?subject=Re:%20Digital%20Business%20Card"
+          icon={faEnvelope}
+          label="Email"
+          target="_blank"
+        >
           jamesklatt@mail.com
         </Tile>
-        <Tile href="#" icon={faFileLines} label="Download">
+        <Tile
+          href="/files/James%20Klatt%20-%20Resume%20-%20100125.pdf"
+          icon={faFileLines}
+          label="Download"
+          target="_blank"
+        >
           Resumé
         </Tile>
         <hr className="my-8 opacity-25" />
@@ -124,7 +135,7 @@ export default function Home() {
               icon={faGithubSquare}
             />
             <SocialButton
-              href="https://twitter.com/ghazlawl"
+              href="https://x.com/ghazlawl"
               icon={faTwitterSquare}
             />
           </div>
