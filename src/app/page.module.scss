@@ -25,7 +25,7 @@
     cursor: not-allowed;
     inset: 0;
     position: absolute;
-    backdrop-filter: blur(0.5px) saturate(1.2) contrast(1.1) brightness(0.9);
+    backdrop-filter: blur(0px) saturate(1) contrast(1) brightness(1);
     mix-blend-mode: overlay;
     transition: backdrop-filter 0.5s ease;
   }

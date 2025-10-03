@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGithubSquare,
   faLinkedin,
+  faSteamSquare,
   faTwitterSquare,
 } from "@fortawesome/free-brands-svg-icons";
 
@@ -21,7 +22,7 @@ import {
 
 import Button from "./components/Button";
 import QRCode from "./components/QRCode";
-import SocialButton from "./components/SocialNetwork";
+import SocialNetwork from "./components/SocialNetwork";
 import Tile from "./components/Tile";
 import classes from "./page.module.scss";
 import Link from "./components/Link";
@@ -126,15 +127,19 @@ export default function Home() {
         <div className="text-center">
           <h3 className="font-bold mb-4 text-blue-100 text-sm">Connect</h3>
           <div className="flex flex-row justify-center">
-            <SocialButton
+            <SocialNetwork
               href="https://www.linkedin.com/in/jamesklatt/"
               icon={faLinkedin}
             />
-            <SocialButton
+            <SocialNetwork
               href="https://github.com/ghazlawl"
               icon={faGithubSquare}
             />
-            <SocialButton
+            <SocialNetwork
+              href="https://steamcommunity.com/profiles/76561198113237978/myworkshopfiles/"
+              icon={faSteamSquare}
+            />
+            <SocialNetwork
               href="https://x.com/ghazlawl"
               icon={faTwitterSquare}
             />
