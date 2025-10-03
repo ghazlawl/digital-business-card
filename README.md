@@ -1,36 +1,214 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Digital Business Card
 
-## Getting Started
+A modern, interactive digital business card built with Next.js, featuring downloadable vCard generation, QR code sharing, and responsive design.
 
-First, run the development server:
+## ✨ Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **📱 Responsive Design** - Works seamlessly on all devices.
+- **📄 vCard Download** - One-click contact saving with proper vCard (.vcf) format.
+- **📲 QR Code Sharing** - Shareable QR code for easy contact distribution.
+- **🎨 Modern UI** - Clean, professional design with smooth animations.
+- **⚡ Fast Performance** - Optimized with Next.js App Router.
+- **🔗 Social Links** - Direct links to LinkedIn, GitHub, and Twitter.
+- **📞 Direct Actions** - Clickable phone and email links.
+- **🌐 SEO Optimized** - Proper meta tags and structured data.
+
+## 🚀 Live Demo
+
+View my digital business card: [https://ghazlawl.dev](https://ghazlawl.dev)
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 15.5.4](https://nextjs.org/) w/ App Router
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS 4.x](https://tailwindcss.com/) + SCSS Modules
+- **Icons**: [FontAwesome](https://fontawesome.com/)
+- **QR Code**: [qrcode](https://www.npmjs.com/package/qrcode)
+- **vCard**: [vcard-creator](https://www.npmjs.com/package/vcard-creator)
+- **Fonts**: Roboto (Next.js optimized)
+- **Deployment**: [Vercel](https://vercel.com/)
+
+## 📦 Installation
+
+### Prerequisites
+
+- Node.js 18.x or higher
+- npm or yarn package manager
+
+### Setup
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/ghazlawl/digital-business-card.git
+   cd digital-business-card
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Run development server**
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Open in browser**
+   ```
+   http://localhost:3000
+   ```
+
+## 🏗️ Project Structure
+
+```
+src/
+├── app/
+│   ├── components/
+│   │   ├── Button.tsx
+│   │   ├── QRCode.tsx
+│   │   ├── SocialNetwork.tsx
+│   │   └── Tile.tsx
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── page.module.scss
+public/
+├── favicons/
+└── images/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎨 Customization
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Personal Information
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Edit the contact information in `src/app/page.tsx`:
 
-## Learn More
+```tsx
+// Update personal details
+<h1>Your Name</h1>
+<p>Your Job Title</p>
+<p>Your Location</p>
 
-To learn more about Next.js, take a look at the following resources:
+// Update contact info
+<Tile href="tel:yourphone" icon={faPhone}>
+  Your Phone Number
+</Tile>
+<Tile href="mailto:youremail" icon={faEnvelope}>
+  Your Email
+</Tile>
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### vCard Information
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Update the vCard generation function with your details:
 
-## Deploy on Vercel
+```tsx
+const downloadVCard = () => {
+  const myVCard = new VCard();
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  myVCard
+    .addName("LastName", "FirstName")
+    .addCompany("Your Company")
+    .addJobtitle("Your Job Title")
+    .addEmail("your@email.com")
+    .addPhoneNumber("your-phone");
+  // ... additional fields
+};
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Styling
+
+- **Colors**: Modify Tailwind classes or update `page.module.scss`
+- **Fonts**: Change font imports in `layout.tsx`
+- **Layout**: Adjust component structure in `page.tsx`
+- **Background**: Replace background image in `public/images/`
+
+### Social Links
+
+Update social media links in the SocialButton components:
+
+```tsx
+<SocialButton href="https://linkedin.com/in/yourprofile" icon={faLinkedin} />
+```
+
+## 📱 Components
+
+### BlueButton
+
+Primary action button that supports both onClick handlers and href links.
+
+```tsx
+// As button with onClick
+<Button onClick={handleClick}>Action</Button>
+
+// As link with href
+<Button href="https://example.com">Link</Button>
+```
+
+### QRCode
+
+Generates QR codes for sharing the business card URL.
+
+```tsx
+<QRCode value="https://your-url.com" size={120} className="mb-4" />
+```
+
+### Tile
+
+Contact information display with icons and click actions.
+
+```tsx
+<Tile href="tel:1234567890" icon={faPhone} label="Phone">
+  (123) 456-7890
+</Tile>
+```
+
+### SocialButton
+
+Social media link buttons with FontAwesome icons.
+
+```tsx
+<SocialNetwork href="https://github.com/username" icon={faGithub} />
+```
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+
+1. **Connect to Vercel**
+
+   ```bash
+   npm install -g vercel
+   vercel
+   ```
+
+2. **Configure domain** (optional)
+   - Add custom domain in Vercel dashboard
+   - Update DNS settings
+
+### Other Platforms
+
+The project works on any platform that supports Next.js:
+
+- Netlify
+- Railway
+- AWS Amplify
+- DigitalOcean App Platform
+
+## 🔧 Scripts
+
+```bash
+npm run dev        # Start development server
+npm run build      # Build for production
+npm run start      # Start production server
+npm run lint       # Run ESLint
+```
+
+## 📝 License
+
+This project is open source and available under the [MIT License](https://mit-license.org/).
+
+**Built with ❤️ using Next.js, React, TypeScript, and Tailwind CSS. Hosted on Vercel.**
