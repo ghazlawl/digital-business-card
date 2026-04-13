@@ -116,7 +116,7 @@ export default function Home() {
           jamesklatt@mail.com
         </Tile>
         <Tile
-          href="/files/James%20Klatt%20-%20Resume%20-%20100125.pdf"
+          href="/files/James%20Klatt%20-%20Resume.pdf"
           icon={faFileLines}
           label="Download"
           target="_blank"
